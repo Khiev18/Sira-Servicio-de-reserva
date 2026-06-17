@@ -207,11 +207,3 @@ Authorization: Bearer <token_cliente>
 
 ---
 
-## 🧪 Credenciales de prueba (seed)
-
-| Rol | Email | Password |
-|-----|-------|----------|
-| Admin | admin@techfix.pe | Admin2025! |
-| Técnico | luis@techfix.pe | Tech2025! |
-| Técnico | pedro@techfix.pe | Tech2025! |
-| Cliente | ana@gmail.com | Cliente2025! |
