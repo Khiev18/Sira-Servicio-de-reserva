@@ -123,11 +123,3 @@ techfix-frontend/
 | `--s-finalizado` | `#22C55E` |
 
 ---
-
-## 🧪 Credenciales de prueba
-
-| Rol | Email | Password |
-|-----|-------|----------|
-| Admin | admin@techfix.pe | Admin2025! |
-| Técnico | luis@techfix.pe | Tech2025! |
-| Cliente | ana@gmail.com | Cliente2025! |
