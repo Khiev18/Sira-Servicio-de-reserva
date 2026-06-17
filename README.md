@@ -119,8 +119,6 @@ cp .env.example .env
 docker compose up -d --build
 ```
 
-- Backend disponible en `http://localhost:3000`
-- Frontend disponible en `http://localhost:5174`
 
 > El `docker-compose.yml` asume una instancia de PostgreSQL accesible en `host.docker.internal:5434`. Ajusta `DB_HOST`/`DB_PORT` si tu base de datos corre en otro lugar.
 
@@ -181,37 +179,6 @@ Nunca subas un archivo `.env` real al repositorio — usa siempre los `.env.exam
 | RN-11 | El precio cobrado es obligatorio antes de marcar un servicio como finalizado |
 
 Esquema completo en [`docs/techfix_database.sql`](docs/techfix_database.sql).
-
-## Roles del sistema
-
-| Rol | Funcionalidades principales |
-|---|---|
-| **Cliente** | Agendar servicio, seguimiento en tiempo real, calificar al técnico, ver historial |
-| **Técnico** | Ver servicios asignados, actualizar estado, registrar diagnóstico y precio, marcar disponibilidad |
-| **Administrador** | Asignar técnicos, dashboard de KPIs, gestionar técnicos/clientes, generar reportes |
-
-## Credenciales de prueba
-
-> Disponibles tras ejecutar el seed (`techfix_seed_50.sql`). Cámbialas antes de cualquier despliegue real.
-
-| Rol | Email | Password |
-|---|---|---|
-| Administrador | `admin@techfix.pe` | `Admin2025!` |
-| Técnico | `luis@techfix.pe` | `Tech2025!` |
-| Cliente | `ana@gmail.com` | `Cliente2025!` |
-
-## Equipo
-
-Proyecto desarrollado para el curso **Integrador I: Sistemas Software**.
-
-| Integrante | Código |
-|---|---|
-| Aranda Herrera, Siledi Angely | U22232649 |
-| Palomino Burnes, Anaiz | U22210875 |
-| Limas Díaz, Diego Germán | U21214514 |
-| Perez Falen, Tamara Nayeli | U20213529 |
-
-Docente: Ing. Ivonne S. Musayón O. — 2026
 
 ## Licencia
 
