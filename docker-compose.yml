@@ -1,0 +1,44 @@
+services:
+  backend:
+    build:
+      context: ./techfix-backend
+      dockerfile: Dockerfile
+    container_name: techfix-backend-app
+    environment:
+      PORT: 3000
+      NODE_ENV: production
+      DB_HOST: host.docker.internal
+      DB_PORT: 5434
+      DB_NAME: techfix_db
+      DB_USER: techfix_user
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: 8h
+      BCRYPT_ROUNDS: 12
+      CORS_ORIGIN: http://127.0.0.1:5174,http://localhost:5174
+    ports:
+      - "127.0.0.1:3000:3000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then((res) => process.exit(res.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 15s
+
+  frontend:
+    build:
+      context: ./techfix-frontend
+      dockerfile: Dockerfile
+    container_name: techfix-frontend-app
+    environment:
+      VITE_HOST: 0.0.0.0
+      VITE_PORT: 5174
+      VITE_API_URL: http://127.0.0.1:3000/api
+      VITE_PROXY_TARGET: http://backend:3000
+    ports:
+      - "127.0.0.1:5174:5174"
+    depends_on:
+      backend:
+        condition: service_healthy

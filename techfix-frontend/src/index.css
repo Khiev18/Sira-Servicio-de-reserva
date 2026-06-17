@@ -1,0 +1,90 @@
+/* src/index.css */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Marca */
+  --red:          #C8A24A;
+  --red-dark:     #9B7A33;
+  --red-light:    #E2C27A;
+  --red-glow:     rgba(200,162,74,0.24);
+  --red-subtle:   rgba(200,162,74,0.12);
+
+  /* Fondos */
+  --bg-0:         #07111F;
+  --bg-1:         #0B172A;
+  --bg-2:         #102038;
+  --bg-3:         #162742;
+  --bg-4:         #22375B;
+
+  /* Bordes */
+  --border:       rgba(185,197,221,0.12);
+  --border-act:   rgba(200,162,74,0.42);
+  --border-med:   rgba(185,197,221,0.2);
+
+  /* Texto */
+  --text-1:       #F4F7FB;
+  --text-2:       #A7B4CA;
+  --text-3:       #74829D;
+  --text-4:       #4C5A73;
+
+  /* Colores de estado */
+  --s-pendiente:  #F59E0B;
+  --s-asignado:   #3B82F6;
+  --s-camino:     #8B5CF6;
+  --s-proceso:    #06B6D4;
+  --s-finalizado: #22C55E;
+  --s-cancelado:  #6B7280;
+
+  /* Tipografía */
+  --font-head:    'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Espaciado y forma */
+  --radius:       14px;
+  --radius-sm:    8px;
+  --radius-xs:    5px;
+  --shadow:       0 4px 24px rgba(0,0,0,0.35);
+  --shadow-lg:    0 8px 40px rgba(0,0,0,0.5);
+  --trans:        all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: var(--font-body);
+  background: var(--bg-1);
+  color: var(--text-1);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-2); }
+::-webkit-scrollbar-thumb { background: var(--bg-4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+
+/* Animaciones base */
+@keyframes fadeUp   { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+@keyframes spin     { to { transform: rotate(360deg); } }
+@keyframes pulse    { 0%,100%{opacity:1;} 50%{opacity:.5;} }
+@keyframes slideIn  { from { opacity:0; transform:translateX(-12px); } to { opacity:1; transform:translateX(0); } }
+
+.fade-up   { animation: fadeUp  0.45s cubic-bezier(0.4,0,0.2,1) both; }
+.fade-in   { animation: fadeIn  0.3s ease both; }
+.slide-in  { animation: slideIn 0.35s cubic-bezier(0.4,0,0.2,1) both; }
+
+/* Delay helpers */
+.d1{animation-delay:.06s} .d2{animation-delay:.12s} .d3{animation-delay:.18s}
+.d4{animation-delay:.24s} .d5{animation-delay:.30s} .d6{animation-delay:.36s}
+
+/* Spinner */
+.spinner {
+  width:18px; height:18px; border-radius:50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-top-color: currentColor;
+  animation: spin .65s linear infinite;
+  display:inline-block;
+}
+
+/* Utilidades */
+.truncate { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
